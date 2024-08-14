@@ -10,6 +10,8 @@ import Feedbacks from './components/feedbacks';
 import Users from './components/users';
 import Settings from './components/setings';
 import { Home } from './Pages/home';
+import CreateCart from './Pages/createad';
+
 
 export const route = createBrowserRouter([
     {
@@ -19,6 +21,14 @@ export const route = createBrowserRouter([
     {
         path: "/signup",
         element: <Signup />
+    },
+    {
+        path: "/historico",
+        element: <CreateCart />
+    },
+    {
+        path: "/create-ad",
+        element: <CreateCart />
     },
     {
         path: "/login",

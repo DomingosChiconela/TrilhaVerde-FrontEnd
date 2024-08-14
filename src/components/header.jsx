@@ -6,6 +6,10 @@ const Header = ({ userType }) => {
  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const api = axios.create({
+    baseURL: 'http://localhost:5000', 
+  });
+
     const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
