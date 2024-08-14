@@ -1,24 +1,24 @@
 import React from 'react';
 
-const products = [
-  {
-    id: 1,
-    name: 'Produto 1',
-    description: 'Descrição breve do produto 1. Aqui você pode incluir detalhes importantes.',
-    price: 'R$ 99,90',
-    imageUrl: 'https://via.placeholder.com/300'
-  },
-  {
-    id: 2,
-    name: 'Produto 2',
-    description: 'Descrição breve do produto 2. Aqui você pode incluir detalhes importantes.',
-    price: 'R$ 129,90',
-    imageUrl: 'https://via.placeholder.com/300'
-  },
+// const products = [
+//   {
+//     id: 1,
+//     name: 'Produto 1',
+//     description: 'Descrição breve do produto 1. Aqui você pode incluir detalhes importantes.',
+//     price: 'R$ 99,90',
+//     imageUrl: 'https://via.placeholder.com/300'
+//   },
+//   {
+//     id: 2,
+//     name: 'Produto 2',
+//     description: 'Descrição breve do produto 2. Aqui você pode incluir detalhes importantes.',
+//     price: 'R$ 129,90',
+//     imageUrl: 'https://via.placeholder.com/300'
+//   },
   
-];
+// ];
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <div className="bg-gray-100 min-h-screen p-6">
       <div className="container mx-auto">
@@ -44,4 +44,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+
