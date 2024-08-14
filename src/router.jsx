@@ -9,9 +9,15 @@ import Dashboard from './components/dashbord';
 import Feedbacks from './components/feedbacks';
 import Users from './components/users';
 import Settings from './components/setings';
+import { Home } from './Pages/home';
 import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
+import AnuncioHistorico from './Pages/AnuncioHistorico';
 
 export const route = createBrowserRouter([
+    {
+        path: "/",
+        element: <Home />
+    },
     {
         path: "/signup",
         element: <Signup />
@@ -30,7 +36,11 @@ export const route = createBrowserRouter([
     },
     {
         path: "/EducacaoSensibilizacao",
-        element: <EducacaoSensibilizacao/>
+        element: < EducacaoSensibilizacao/>
+    },
+    {
+        path: "/AnuncioHistorico",
+        element: < AnuncioHistorico/>
     },
     {
         path: "/admin",
