@@ -2,7 +2,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Footer } from '../components/footer';
 
 export const Login = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
@@ -75,7 +74,6 @@ export const Login = () => {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

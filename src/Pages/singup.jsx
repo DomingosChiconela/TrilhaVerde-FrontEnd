@@ -40,7 +40,6 @@ export const Signup = () => {
 
   return (
     <>
-    <Header/>
     <div className="min-h-screen flex items-center justify-center bg-green-100 p-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         {!showOptions ? (
@@ -119,7 +118,6 @@ export const Signup = () => {
         )}
       </div>
     </div>
-    <Footer/>
     </>
   );
 };
