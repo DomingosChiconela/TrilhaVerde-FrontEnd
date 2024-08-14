@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export const ResetPassword = () => {
-  const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm();
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
   const { token } = useParams();
   const navigate = useNavigate();
   const [message, setMessage] = React.useState('');
@@ -44,22 +44,14 @@ export const ResetPassword = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {message && <p className={`mb-4 ${message.includes('Erro') ? 'text-red-500' : 'text-green-500'}`}>{message}</p>}
 
-          <label className="block mb-4">
-            <span className="text-gray-700">Código de Redefinição:</span>
-            <input
-              type="text"
-              {...register('resetCode', { required: 'Código de redefinição é obrigatório' })}
-              className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.resetCode ? 'border-red-500' : ''}`}
-            />
-            {errors.resetCode && <p className="text-red-500">{errors.resetCode.message}</p>}
-          </label>
+          
 
           <label className="block mb-4">
             <span className="text-gray-700">Nova Senha:</span>
             <input
               type="password"
               {...register('newPassword', { required: 'Nova senha é obrigatória' })}
-              className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.newPassword ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full border-2 ${errors.newPassword ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
             />
             {errors.newPassword && <p className="text-red-500">{errors.newPassword.message}</p>}
           </label>
@@ -69,7 +61,7 @@ export const ResetPassword = () => {
             <input
               type="password"
               {...register('confirmPassword', { required: 'Confirmação de senha é obrigatória' })}
-              className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.confirmPassword ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full border-2 ${errors.confirmPassword ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
             />
             {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
           </label>

@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { RouterProvider } from "react-router-dom";
-import { route } from "./router"; // Atualize o caminho para o nome correto do arquivo
+import { route } from "./router.jsx"; // Use a extensão correta se necessário
 
 function App() {
   return (
