@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const ProductCard = ({ image, name, description, location, price, category, weight }) => {
+export const ProductCard = ({ image, name, description, location, price, category, weight }) => {
     return (
         <div className="bg-white border border-gray-200 rounded-lg shadow-md m-4 w-64 overflow-hidden text-center">
             <img src={image}  alt={name} className="w-full h-40 object-cover" />
@@ -18,4 +18,4 @@ const ProductCard = ({ image, name, description, location, price, category, weig
     );
 };
 
-export default ProductCard;
+ 

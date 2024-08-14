@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/header';
+import { Footer } from '../components/footer';
 
 export const Signup = () => {
   const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm();
@@ -37,6 +39,7 @@ export const Signup = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen flex items-center justify-center bg-green-100 p-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         {!showOptions ? (
@@ -44,44 +47,45 @@ export const Signup = () => {
             <h2 className="text-2xl font-semibold text-green-800 text-center">Cadastro</h2>
 
             <label className="block">
-              <span className="text-green-700">Nome:</span>
-              <input
-                type="text"
-                {...register('name', { required: 'Nome é obrigatório' })}
-                className={`mt-1 block w-full border-green-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.name ? 'border-red-500' : ''}`}
-              />
-              {errors.name && <p className="text-red-500">{errors.name.message}</p>}
-            </label>
+  <span className="text-black">Nome:</span>
+  <input
+    type="text"
+    {...register('name', { required: 'Nome é obrigatório' })}
+    className={`mt-1 block w-full border-2 ${errors.name ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
+  />
+  {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+</label>
 
-            <label className="block">
-              <span className="text-green-700">Email:</span>
-              <input
-                type="email"
-                {...register('email', { required: 'Email é obrigatório' })}
-                className={`mt-1 block w-full border-green-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.email ? 'border-red-500' : ''}`}
-              />
-              {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-            </label>
+<label className="block">
+  <span className="text-black">Email:</span>
+  <input
+    type="email"
+    {...register('email', { required: 'Email é obrigatório' })}
+    className={`mt-1 block w-full border-2 ${errors.email ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
+  />
+  {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+</label>
 
-            <label className="block">
-              <span className="text-green-700">Senha:</span>
-              <input
-                type="password"
-                {...register('password', { required: 'Senha é obrigatória' })}
-                className={`mt-1 block w-full border-green-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.password ? 'border-red-500' : ''}`}
-              />
-              {errors.password && <p className="text-red-500">{errors.password.message}</p>}
-            </label>
+<label className="block">
+  <span className="text-black">Senha:</span>
+  <input
+    type="password"
+    {...register('password', { required: 'Senha é obrigatória' })}
+    className={`mt-1 block w-full border-2 ${errors.password ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
+  />
+  {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+</label>
 
-            <label className="block">
-              <span className="text-green-700">Confirmar Senha:</span>
-              <input
-                type="password"
-                {...register('confirmPassword', { required: 'Confirmação de senha é obrigatória' })}
-                className={`mt-1 block w-full border-green-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.confirmPassword ? 'border-red-500' : ''}`}
-              />
-              {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
-            </label>
+<label className="block">
+  <span className="text-black">Confirmar Senha:</span>
+  <input
+    type="password"
+    {...register('confirmPassword', { required: 'Confirmação de senha é obrigatória' })}
+    className={`mt-1 block w-full border-2 ${errors.confirmPassword ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
+  />
+  {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
+</label>
+
 
             <label className="block flex items-center">
               <input
@@ -114,5 +118,6 @@ export const Signup = () => {
         )}
       </div>
     </div>
+    </>
   );
 };

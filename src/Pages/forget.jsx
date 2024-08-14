@@ -35,7 +35,7 @@ export const ForgotPassword = () => {
             <input
               type="email"
               {...register('email', { required: 'O email é obrigatório' })}
-              className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.email ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full border-2 ${errors.email ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
             />
             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
           </label>

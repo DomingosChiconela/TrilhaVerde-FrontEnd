@@ -1,5 +1,6 @@
 import React from 'react';
-import ProductCard from '../home/productcart';
+import{ ProductCard} from '../home/productcart';
+import Header from '../header';
 
 const HomePage = () => {
     const products = [
@@ -25,26 +26,7 @@ const HomePage = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col ">
-             <header className="bg-gray-800 text-white py-8 w-full flex items-center justify-between px-6">
-           
-            <div className="flex items-center space-x-6">
-               <h1 className='text-2xl'>Logo</h1>
-            </div>
-
-           
-            <nav className="flex space-x-6">
-                <a href="#home" className="hover:text-gray-400">Início</a>
-                <a href="#products" className="hover:text-gray-400">Produtos</a>
-                <a href="#about" className="hover:text-gray-400">Sobre</a>
-                <a href="#contact" className="hover:text-gray-400">Contato</a>
-            </nav>
-
-           
-            <div className="flex items-center">
-                
-            </div>
-        </header>
-
+             <Header/>
             <div className="mt-6">
                 <button className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     Criar novo Anúncio
