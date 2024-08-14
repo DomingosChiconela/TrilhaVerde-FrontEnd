@@ -1,8 +1,8 @@
 
 import { createBrowserRouter } from 'react-router-dom';
-import { Singup } from './Pages/singup';
 import { Login } from './Pages/login';
 import { ResetPassword } from './Pages/reset';
+import { Signup } from './Pages/singup';
 import { ForgotPassword } from './Pages/forget';
 
 
@@ -12,7 +12,7 @@ export const route = createBrowserRouter([
     
     {
     path: "/signup",
-    element: <Singup/>
+    element: <Signup/>
     },
     {
     path: "/login",
