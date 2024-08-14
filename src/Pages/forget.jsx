@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 export const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState('');
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
+  const [message, setMessage] = React.useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const onSubmit = async (data) => {
+    setMessage('');
 
     try {
-      const response = await axios.post('/auth/forgot-password', { email });
+      const response = await axios.post('/auth/forgot-password', data);
       if (response.data.success) {
         setMessage('Um e-mail com instruções para redefinir sua senha foi enviado.');
       } else {
@@ -20,8 +19,6 @@ export const ForgotPassword = () => {
     } catch (error) {
       console.error('Erro ao enviar solicitação de recuperação de senha', error);
       setMessage('Erro ao enviar solicitação. Tente novamente mais tarde.');
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -30,18 +27,17 @@ export const ForgotPassword = () => {
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold mb-6 text-gray-700 text-center">Esqueceu a Senha?</h2>
         
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           {message && <p className={`mb-4 ${message.includes('Erro') ? 'text-red-500' : 'text-green-500'}`}>{message}</p>}
           
           <label className="block mb-4">
             <span className="text-gray-700">Email:</span>
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+              {...register('email', { required: 'O email é obrigatório' })}
+              className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.email ? 'border-red-500' : ''}`}
             />
+            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
           </label>
 
           <button

@@ -1,31 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export const ResetPassword = () => {
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [resetCode, setResetCode] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState('');
-  const { token } = useParams(); 
+  const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm();
+  const { token } = useParams();
   const navigate = useNavigate();
+  const [message, setMessage] = React.useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    if (newPassword !== confirmPassword) {
+  const onSubmit = async (data) => {
+    if (data.newPassword !== data.confirmPassword) {
       setMessage('As senhas não coincidem.');
-      setIsSubmitting(false);
       return;
     }
 
     try {
       const response = await axios.post('/auth/reset-password', {
-        resetCode,
-        newPassword,
-        token, 
+        resetCode: data.resetCode,
+        newPassword: data.newPassword,
+        token,
       });
 
       if (response.data.success) {
@@ -39,8 +33,6 @@ export const ResetPassword = () => {
     } catch (error) {
       console.error('Erro ao redefinir a senha', error);
       setMessage('Erro ao redefinir a senha. Tente novamente mais tarde.');
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -49,31 +41,37 @@ export const ResetPassword = () => {
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold mb-6 text-gray-700 text-center">Redefinir Senha</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           {message && <p className={`mb-4 ${message.includes('Erro') ? 'text-red-500' : 'text-green-500'}`}>{message}</p>}
-          
-         
+
+          <label className="block mb-4">
+            <span className="text-gray-700">Código de Redefinição:</span>
+            <input
+              type="text"
+              {...register('resetCode', { required: 'Código de redefinição é obrigatório' })}
+              className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.resetCode ? 'border-red-500' : ''}`}
+            />
+            {errors.resetCode && <p className="text-red-500">{errors.resetCode.message}</p>}
+          </label>
 
           <label className="block mb-4">
             <span className="text-gray-700">Nova Senha:</span>
             <input
               type="password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+              {...register('newPassword', { required: 'Nova senha é obrigatória' })}
+              className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.newPassword ? 'border-red-500' : ''}`}
             />
+            {errors.newPassword && <p className="text-red-500">{errors.newPassword.message}</p>}
           </label>
 
           <label className="block mb-6">
             <span className="text-gray-700">Confirmar Senha:</span>
             <input
               type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+              {...register('confirmPassword', { required: 'Confirmação de senha é obrigatória' })}
+              className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm ${errors.confirmPassword ? 'border-red-500' : ''}`}
             />
+            {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
           </label>
 
           <button
