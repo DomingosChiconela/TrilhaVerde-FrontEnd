@@ -38,7 +38,7 @@ export const ClientRegistrationForm = () => {
 
   return (
     <>
-    
+      <Header />
       <div className="container mx-auto p-4">
         {!showOptions ? (
           <form onSubmit={handleSubmit} className="bg-red-50 p-6 rounded-lg shadow-md max-w-md mx-auto">
