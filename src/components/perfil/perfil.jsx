@@ -7,11 +7,11 @@ const fetchProfileData = () => {
     regiao: localStorage.getItem('regiao') || 'Sua Região',
     foto: localStorage.getItem('foto') || '',
     vendas: JSON.parse(localStorage.getItem('vendas')) || {
-      papel: 0,
-      madeira: 0,
-      vidro: 0,
-      plastico: 0,
-      metal: 0,
+      papel: 10, // Valor inicial ajustado
+      madeira: 15, // Valor inicial ajustado
+      vidro: 5,
+      plastico: 7,
+      metal: 12,
     },
   };
 };
@@ -30,11 +30,11 @@ const Perfil = () => {
   const [foto, setFoto] = useState('');
   const [isVendasOpen, setIsVendasOpen] = useState(false);
   const [vendas, setVendas] = useState({
-    papel: 0,
-    madeira: 0,
-    vidro: 0,
-    plastico: 0,
-    metal: 0,
+    papel: 10,
+    madeira: 15,
+    vidro: 5,
+    plastico: 7,
+    metal: 12,
   });
 
   useEffect(() => {
