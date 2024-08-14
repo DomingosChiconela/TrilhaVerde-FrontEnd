@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Dashboard from '../dasboard'; 
+import Dashboard from '../dasboarduser';
+
 const fetchProfileData = () => {
   return {
     nome: localStorage.getItem('nome') || 'Seu Nome',
     regiao: localStorage.getItem('regiao') || 'Sua Região',
     foto: localStorage.getItem('foto') || '',
     vendas: JSON.parse(localStorage.getItem('vendas')) || {
+      papel: 0,
+      madeira: 0,
+      vidro: 0,
       plastico: 0,
       metal: 0,
-      vidro: 0,
     },
   };
 };
@@ -27,9 +30,11 @@ const Perfil = () => {
   const [foto, setFoto] = useState('');
   const [isVendasOpen, setIsVendasOpen] = useState(false);
   const [vendas, setVendas] = useState({
+    papel: 0,
+    madeira: 0,
+    vidro: 0,
     plastico: 0,
     metal: 0,
-    vidro: 0,
   });
 
   useEffect(() => {
@@ -43,11 +48,13 @@ const Perfil = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setVendas((prevVendas) => ({
+        papel: prevVendas.papel + Math.floor(Math.random() * 10),
+        madeira: prevVendas.madeira + Math.floor(Math.random() * 10),
+        vidro: prevVendas.vidro + Math.floor(Math.random() * 7),
         plastico: prevVendas.plastico + Math.floor(Math.random() * 10),
         metal: prevVendas.metal + Math.floor(Math.random() * 5),
-        vidro: prevVendas.vidro + Math.floor(Math.random() * 7),
       }));
-    }, 5000); 
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -109,7 +116,7 @@ const Perfil = () => {
 
       {isVendasOpen && (
         <div
-          className={`fixed top-0 right-0 h-full w-80 bg-white border-l border-gray-300 shadow-lg transition-transform duration-300 ease-in-out ${
+          className={`fixed top-0 right-0 h-full w-full max-w-screen-lg bg-white border-l border-gray-300 shadow-lg transition-transform duration-300 ease-in-out ${
             isVendasOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -123,19 +130,16 @@ const Perfil = () => {
                 Fechar
               </button>
             </div>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span>Plástico:</span>
-                <span>{vendas.plastico}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Metal:</span>
-                <span>{vendas.metal}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Vidro:</span>
-                <span>{vendas.vidro}</span>
-              </div>
+            <div className="grid grid-cols-5 gap-4 mb-4">
+              {Object.entries(vendas).map(([categoria, valor]) => (
+                <div
+                  key={categoria}
+                  className="p-4 border border-gray-300 rounded-lg shadow-md flex flex-col items-center"
+                >
+                  <h3 className="text-lg font-semibold capitalize">{categoria}</h3>
+                  <p className="text-xl font-bold mt-2">{valor}</p>
+                </div>
+              ))}
             </div>
             <Dashboard vendas={vendas} />
           </div>
