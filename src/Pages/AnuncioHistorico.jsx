@@ -49,6 +49,7 @@ const AnuncioHistorico = () => {
   };
 
   return (
+    <>
     <div className="container mx-auto p-6">
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Histórico de Anúncios</h1>
@@ -146,6 +147,7 @@ const AnuncioHistorico = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
