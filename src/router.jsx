@@ -9,8 +9,13 @@ import Dashboard from './components/dashbord';
 import Feedbacks from './components/feedbacks';
 import Settings from './components/settings';
 import Users from './components/users';
+import { Home } from './Pages/home';
 
 export const route = createBrowserRouter([
+    {
+        path: "/",
+        element: <Home />
+    },
     {
         path: "/signup",
         element: <Signup />
