@@ -19,10 +19,22 @@ const barData = (vendas) => ({
         vendas.vidro || 0,
         vendas.madeira || 0
       ],
-      backgroundColor: 'rgba(153, 102, 255, 0.2)',
-      borderColor: 'rgba(153, 102, 255, 1)',
+      backgroundColor: [
+        'rgba(75, 192, 192, 0.2)', 
+        'rgba(255, 99, 132, 0.2)', 
+        'rgba(255, 159, 64, 0.2)', 
+        'rgba(54, 162, 235, 0.2)', 
+        'rgba(255, 206, 86, 0.2)'  
+      ],
+      borderColor: [
+        'rgba(75, 192, 192, 1)', 
+        'rgba(255, 99, 132, 1)', 
+        'rgba(255, 159, 64, 1)', 
+        'rgba(54, 162, 235, 1)', 
+        'rgba(255, 206, 86, 1)'  
+      ],
       borderWidth: 1,
-      barThickness: 15, 
+      barThickness: 15,
     },
   ],
 });
@@ -52,11 +64,11 @@ export const Dashboard = ({ vendas }) => {
       <h1 className="text-3xl font-bold mb-6 text-center">Dashboard</h1>
 
       <div className="mb-8 flex justify-between">
-        <div className="w-full mr-4">
+        <div className="w-full mr-4 flex-grow">
           <h2 className="text-lg lg:text-3xl md:text-2xl font-semibold mb-4 text-center">
             Vendas por Categoria
           </h2>
-          <div className="bg-white shadow-md rounded-lg p-4">
+          <div className="bg-white shadow-md rounded-lg p-4 h-full flex items-center justify-center">
             <Bar 
               data={barData(vendas)} 
               options={{
@@ -66,22 +78,29 @@ export const Dashboard = ({ vendas }) => {
                 },
                 scales: {
                   x: {
-                    ticks: { display: true }, 
+                    grid: {
+                      display: false,
+                    },
+                    ticks: { display: true },
                   },
                   y: {
+                    grid: {
+                      display: false,
+                    },
                     beginAtZero: true,
                   },
                 },
               }} 
+              height={300} 
             />
           </div>
         </div>
 
-        <div className="w-full ml-4">
+        <div className="w-full ml-4 flex-grow">
           <h2 className="text-lg lg:text-3xl md:text-2xl font-semibold mb-4 text-center">
             Distribuição das Vendas
           </h2>
-          <div className="bg-white shadow-md rounded-lg p-4">
+          <div className="bg-white shadow-md rounded-lg p-4 h-full flex items-center justify-center">
             <Doughnut 
               data={doughnutData(vendas)} 
               options={{
@@ -89,8 +108,9 @@ export const Dashboard = ({ vendas }) => {
                 plugins: {
                   legend: { position: 'top' },
                 },
-                cutout: '70%', 
+                cutout: '70%',
               }} 
+              height={300} 
             />
           </div>
         </div>

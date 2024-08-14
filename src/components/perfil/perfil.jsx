@@ -50,9 +50,9 @@ const Perfil = () => {
       setVendas((prevVendas) => ({
         papel: prevVendas.papel + Math.floor(Math.random() * 10),
         madeira: prevVendas.madeira + Math.floor(Math.random() * 10),
-        vidro: prevVendas.vidro + Math.floor(Math.random() * 7),
+        vidro: prevVendas.vidro + Math.floor(Math.random() * 10),
         plastico: prevVendas.plastico + Math.floor(Math.random() * 10),
-        metal: prevVendas.metal + Math.floor(Math.random() * 5),
+        metal: prevVendas.metal + Math.floor(Math.random() * 10),
       }));
     }, 5000);
 
