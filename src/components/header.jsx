@@ -55,6 +55,12 @@ const Header = ({ userType }) => {
             Signup
           </NavLink>
           <NavLink
+            to="/perfil"
+            className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
+          >
+              Perfil
+          </NavLink>
+          <NavLink
             to="/login"
             className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
           >

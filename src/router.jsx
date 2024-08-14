@@ -10,6 +10,7 @@ import Feedbacks from './components/feedbacks';
 import Users from './components/users';
 import Settings from './components/setings';
 import { Home } from './Pages/home';
+import Perfil from './components/perfil/perfil';
 
 export const route = createBrowserRouter([
     {
@@ -57,5 +58,9 @@ export const route = createBrowserRouter([
     {
         path: "*", 
         element: <NotFound />
-    }
+    },
+    {
+        path: "/perfil",
+        element: <Perfil />
+    },
 ]);
