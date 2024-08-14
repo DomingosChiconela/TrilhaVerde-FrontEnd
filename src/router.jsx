@@ -9,6 +9,7 @@ import Dashboard from './components/dashbord';
 import Feedbacks from './components/feedbacks';
 import Users from './components/users';
 import Settings from './components/setings';
+import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
 
 export const route = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ export const route = createBrowserRouter([
     {
         path: "/forget",
         element: <ForgotPassword />
+    },
+    {
+        path: "/EducacaoSensibilizacao",
+        element: <EducacaoSensibilizacao/>
     },
     {
         path: "/admin",
