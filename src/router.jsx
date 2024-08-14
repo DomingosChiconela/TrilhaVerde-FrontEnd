@@ -13,7 +13,6 @@ import { Home } from './Pages/home';
 import CreateCart from './Pages/createad';
 
 
-
 export const route = createBrowserRouter([
     {
         path: "/",
@@ -24,16 +23,16 @@ export const route = createBrowserRouter([
         element: <Signup />
     },
     {
+        path: "/create-ad",
+        element: <CreateCart />
+    },
+    {
         path: "/login",
         element: <Login />
     },
     {
         path: "/reset",
         element: <ResetPassword />
-    },
-    {
-        path: "/create-ad",
-        element: <CreateCart />
     },
     {
         path: "/forget",

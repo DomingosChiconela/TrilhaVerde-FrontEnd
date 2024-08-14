@@ -1,13 +1,11 @@
+// src/App.jsx
 import React from "react";
 import { RouterProvider } from "react-router-dom";
-import { route } from "./router";
-import { AdProvider } from "./components/adcontext/context"; 
+import { route } from "./router.jsx"; // Use a extensão correta se necessário
 
 function App() {
   return (
-    <AdProvider>
-      <RouterProvider router={route} />
-    </AdProvider>
+    <RouterProvider router={route} />
   );
 }
 
