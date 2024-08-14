@@ -1,16 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import { RouterProvider } from "react-router-dom";
+import { route } from "./router.jsx"; // Use a extensão correta se necessário
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-     <h1 className="text-blue-500 font-medium">hdfhnddkdd</h1>
-    </>
-  )
+    <RouterProvider router={route} />
+  );
 }
 
-export default App
+export default App;
