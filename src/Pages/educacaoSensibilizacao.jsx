@@ -15,32 +15,39 @@ const EducacaoSensibilizacao = () => {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
-          <h2 className="text-xl font-semibold gradient-text">Por que Reciclar?</h2>
-          <p className="text-gray-600 mt-2 mb-4">Reciclar é crucial para a preservação do meio ambiente. Aqui estão alguns benefícios:</p>
-          <ul className="list-disc ml-6 text-gray-600">
-            <li><strong>Reduz o Volume de Resíduos:</strong> Diminui a quantidade de lixo nos aterros.</li>
-            <li><strong>Conserva Recursos Naturais:</strong> Menos necessidade de extrair novos recursos.</li>
-            <li><strong>Diminui a Poluição:</strong> Menos poluentes são lançados no ar e na água.</li>
-          </ul>
-        </section>
+  <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
+    <h2 className="text-2xl font-semibold gradient-text mb-4">Por que Reciclar?</h2>
+    <p className="text-gray-700 mb-4">Reciclar é essencial para a preservação do meio ambiente. Veja alguns dos principais benefícios:</p>
+    <ul className="list-disc ml-6 text-gray-700 space-y-2">
+      <li><strong>Reduz o Volume de Resíduos:</strong> Menos lixo nos aterros sanitários.</li>
+      <li><strong>Conserva Recursos Naturais:</strong> Menos necessidade de extrair novos materiais.</li>
+      <li><strong>Diminui a Poluição:</strong> Menos poluentes liberados no ar e na água.</li>
+    </ul>
+  </section>
 
-        <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
-          <h2 className="text-xl font-semibold gradient-text">Como Separar os Resíduos Corretamente</h2>
-          <p className="text-gray-600 mt-2 mb-4">Seguir a separação correta ajuda a garantir que os materiais recicláveis sejam processados adequadamente.</p>
-          <ul className="list-disc ml-6 text-gray-600">
-            <li><strong>Plásticos:</strong> Coloque plásticos em um recipiente azul.</li>
-            <li><strong>Papéis e Cartões:</strong> Coloque papéis e cartões em um recipiente verde.</li>
-            <li><strong>Vidros:</strong> Coloque vidros em um recipiente transparente.</li>
-            <li><strong>Orgânicos:</strong> Coloque resíduos orgânicos em um recipiente marrom.</li>
-          </ul>
-        </section>
+  <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
+    <h2 className="text-2xl font-semibold gradient-text mb-4">Como Separar os Resíduos Corretamente</h2>
+    <p className="text-gray-700 mb-4">Separar os resíduos corretamente ajuda a garantir que os materiais recicláveis sejam processados de forma adequada:</p>
+    <ul className="list-disc ml-6 text-gray-700 space-y-2">
+      <li><strong>Plásticos:</strong> Coloque plásticos em um recipiente azul.</li>
+      <li><strong>Papéis e Cartões:</strong> Coloque papéis e cartões em um recipiente verde.</li>
+      <li><strong>Vidros:</strong> Coloque vidros em um recipiente transparente.</li>
+      <li><strong>Orgânicos:</strong> Coloque resíduos orgânicos em um recipiente marrom.</li>
+    </ul>
+  </section>
 
-        <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
-          <h2 className="text-xl font-semibold gradient-text">Recursos Adicionais</h2>
-          <p className="text-gray-600 mt-2 mb-4">Abaixo estão alguns vídeos que ajudam a entender melhor a importância da reciclagem e como realizar a separação correta dos resíduos.</p>
-        </section>
-      </div>
+  <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
+  <h2 className="text-2xl font-semibold gradient-text mb-4">Recursos Adicionais</h2>
+  <p className="text-gray-700 mb-4">Aqui estão alguns recursos úteis para aprofundar seu conhecimento sobre reciclagem e gestão de resíduos:</p>
+  <ul className="list-disc ml-6 text-gray-700 space-y-2">
+    <li><strong>Manual de Reciclagem:</strong> Guia completo sobre práticas de reciclagem e como separar resíduos.</li>
+    <li><strong>Infográfico:</strong> Representação visual dos tipos de materiais recicláveis e suas categorias.</li>
+    <li><strong>Artigo Educativo:</strong> "A Importância da Reciclagem para o Futuro Sustentável"</li>
+  </ul>
+</section>
+
+</div>
+
 
       <section className="mb-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Assista aos Nossos Vídeos</h2>
