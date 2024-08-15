@@ -83,17 +83,21 @@ const CreateAdPage = () => {
           />
         </div>
         
-        <div class="mb-6">
-  <label class="block text-gray-700 text-sm font-semibold mb-2">Categoria</label>
+        <div className="mb-6">
+  <label className="block text-gray-700 text-sm font-semibold mb-2">Categoria</label>
   <select
     name="category"
-    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    value={formData.category}
+    onChange={handleChange}
+    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
   >
-    <option value="" disabled selected>Selecione uma categoria</option>
+    <option value="" disabled>Selecione uma categoria</option>
     <option value="0d481d8f-d92f-4cd5-b1d2-8da1806cbb1b">Metal</option>
-    <option value="40302c1e-458e-4765-8df6-0c3db7db86a1">Plástico</option>
+    <option value="40302c1e-458e-4765-8df6-0c3db7db86a1">Plastico</option>
     <option value="e2ce95e9-6597-4d33-85a5-7860deab4cae">Papel</option>
     <option value="1b5def53-97eb-4540-a071-e7e379664ce7">Madeira</option>
+   
+    
   </select>
 </div>
 

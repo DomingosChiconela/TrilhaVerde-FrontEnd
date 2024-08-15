@@ -2,17 +2,17 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
-// Registrar componentes do Chart.js
+
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Dashboard = () => {
-  // Dados para o gráfico de inserções por mês
+ 
   const postsData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [
       {
         label: 'Inserções de Posts',
-        data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], // Dados de exemplo
+        data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], 
         backgroundColor: '#42A5F5',
         borderColor: '#1E88E5',
         borderWidth: 1,
@@ -20,13 +20,13 @@ const Dashboard = () => {
     ],
   };
 
-  // Dados para o gráfico de número de usuários por mês
+ 
   const usersData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     datasets: [
       {
         label: 'Número de Usuários',
-        data: [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105], // Dados de exemplo
+        data: [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105], 
         backgroundColor: '#66BB6A',
         borderColor: '#43A047',
         borderWidth: 1,
@@ -34,7 +34,7 @@ const Dashboard = () => {
     ],
   };
 
-  // Opções para os gráficos
+ 
   const options = {
     responsive: true,
     plugins: {

@@ -1,30 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProductCard } from '../home/productcart'; 
 import Header from '../header';
+import { httpClient } from '../../axios/axios';
 
 const HomePage = () => {
     const navigate = useNavigate(); 
-    const products = [
-        {
-            imageUrl: '',
-            name: 'Nome do Produto 1',
-            description: 'Descrição do Produto 1',
-            location: 'Cidade, Estado',
-            price: '99,99MT',
-            category: 'Categoria 1',
-            weight: '1.5'
-        },
-        {
-            imageUrl: '',
-            name: 'Nome do Produto 2',
-            description: 'Descrição do Produto 2',
-            location: 'Cidade, Estado',
-            price: '149,99MT',
-            category: 'Categoria 2',
-            weight: '2.0'
-        },
-    ];
+   const [post, SetPost]=  useState([])
+
+const config ={ headers :{Authorization :`Bearer ${localStorage.getItem('token')}`}
+    }
+  useEffect( ()=>{
+
+    
+    httpClient.get(`/api/post/`,config).then((res)=>{
+      console.log(res.data)
+      SetPost(res.data.data)
+
+    }).catch((error)=>{
+        console.log(error)
+    })
+
+   },[])
+
+    
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -39,7 +38,8 @@ const HomePage = () => {
     </div>
 
     <main className="flex flex-wrap justify-center py-4 w-full max-w-screen-lg mx-auto">
-        {products.map((product, index) => (
+        {post.map((product, index) => (
+       
             <ProductCard
                 key={index}
                 imageUrl={product.image}
@@ -48,7 +48,10 @@ const HomePage = () => {
                 location={product.location}
                 price={product.price}
                 category={product.category}
-                weight={product.weight}
+                quantity={product.quantity}
+                postId = {product.id}
+
+                
             />
         ))}
     </main>
