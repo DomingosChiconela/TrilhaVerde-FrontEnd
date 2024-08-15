@@ -14,7 +14,6 @@ export const ProductCard = () => {
   const navigate = useNavigate();
 
   const handleRequest = () => {
-    // Navega para a página de Notificações com os dados do produto
     navigate('/notifications', { state: { product: simulatedProduct } });
   };
 
