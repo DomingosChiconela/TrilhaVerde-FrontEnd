@@ -21,7 +21,7 @@ const Residuos = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
+        <div className="">
             <main className="mt-6">
                 <button
                     onClick={openModal}

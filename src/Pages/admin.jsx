@@ -3,8 +3,8 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 const AdminPage = () => {
   return (
-    <div className="min-h-screen flex bg-gray-100">
-      <aside className="w-64 bg-gray-800 text-white p-6">
+    <div className="min-h-screen flex bg-green-100">
+      <aside className="w-64 bg-blue-600 text-white p-6">
         <h1 className="text-2xl font-semibold mb-6">Admin Panel</h1>
         <nav>
           <ul>
@@ -12,7 +12,7 @@ const AdminPage = () => {
               <NavLink
                 to="/admin/dashboard"
                 className={({ isActive }) =>
-                  `block px-4 py-2 rounded-md ${isActive ? 'bg-gray-700' : 'hover:bg-gray-600'}`
+                  `block px-4 py-2 rounded-md ${isActive ? 'bg-blue-400' : 'hover:bg-gray-600'}`
                 }
               >
                 Dashboard
@@ -22,7 +22,7 @@ const AdminPage = () => {
               <NavLink
                 to="/admin/users"
                 className={({ isActive }) =>
-                  `block px-4 py-2 rounded-md ${isActive ? 'bg-gray-700' : 'hover:bg-gray-600'}`
+                  `block px-4 py-2 rounded-md ${isActive ? 'bg-blue-400' : 'hover:bg-gray-600'}`
                 }
               >
                 Users
@@ -32,7 +32,7 @@ const AdminPage = () => {
               <NavLink
                 to="/admin/settings"
                 className={({ isActive }) =>
-                  `block px-4 py-2 rounded-md ${isActive ? 'bg-gray-700' : 'hover:bg-gray-600'}`
+                  `block px-4 py-2 rounded-md ${isActive ? 'bg-blue-400' : 'hover:bg-gray-600'}`
                 }
               >
                 Settings
@@ -42,7 +42,7 @@ const AdminPage = () => {
               <NavLink
                 to="/admin/feedbacks"
                 className={({ isActive }) =>
-                  `block px-4 py-2 rounded-md ${isActive ? 'bg-gray-700' : 'hover:bg-gray-600'}`
+                  `block px-4 py-2 rounded-md ${isActive ? 'bg-blue-400' : 'hover:bg-gray-600'}`
                 }
               >
                 Feedbacks
@@ -52,7 +52,7 @@ const AdminPage = () => {
               <NavLink
                 to="/admin/residuos"
                 className={({ isActive }) =>
-                  `block px-4 py-2 rounded-md ${isActive ? 'bg-gray-700' : 'hover:bg-gray-600'}`
+                  `block px-4 py-2 rounded-md ${isActive ? 'bg-blue-400' : 'hover:bg-gray-600'}`
                 }
               >
                 Residuos

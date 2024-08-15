@@ -16,16 +16,16 @@ const UserProfileTable = () => {
     labels: provincialData.map(item => item.label),
     datasets: [{
       data: provincialData.map(item => item.value),
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      backgroundColor: ['#FF6F61', '#4A90E2', '#F5A623'],
       borderColor: '#fff',
       borderWidth: 1,
     }]
   };
 
   const users = [
-    { id: 1, profilePicture: 'https://via.placeholder.com/40', name: 'Domingos' },
-    { id: 2, profilePicture: 'https://via.placeholder.com/40', name: 'Vicente' },
-    { id: 3, profilePicture: 'https://via.placeholder.com/40', name: 'Alicida' },
+    { id: 1, profilePicture: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg', name: 'Domingos' },
+    { id: 2, profilePicture: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg', name: 'Vicente' },
+    { id: 3, profilePicture: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg', name: 'Alicida' },
   ];
 
   const handleEdit = (id) => {

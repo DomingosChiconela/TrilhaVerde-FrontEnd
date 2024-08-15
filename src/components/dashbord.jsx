@@ -73,7 +73,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="">
       <h3 className="text-3xl font-bold mb-6 text-gray-800">Dashboard Overview</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -83,7 +83,7 @@ const Dashboard = () => {
        
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h4 className="text-2xl font-semibold text-gray-700 mb-2">Usuários por Mês</h4>
-          <p className="text-gray-500">Último login: <span className="font-bold text-gray-800">10 minutos atrás</span></p>
+          <p className="text-gray-500">Número de Usuários por Mês: <span className="font-bold text-gray-800">120</span></p>
         </div>
       </div>
 

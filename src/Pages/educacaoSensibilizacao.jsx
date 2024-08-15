@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import ReactPlayer from 'react-player';
+import { Footer } from '../components/footer';
 
 const EducacaoSensibilizacao = () => {
   const { register, handleSubmit } = useForm();
@@ -9,6 +10,7 @@ const EducacaoSensibilizacao = () => {
   };
 
   return (
+    <>
     <div className="container mx-auto p-6">
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Educação e Sensibilização sobre Reciclagem</h1>
@@ -138,6 +140,8 @@ const EducacaoSensibilizacao = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
