@@ -10,14 +10,14 @@ const Feedbacks = () => {
     const fetchFeedbacks = async () => {
       try {
         const response = await axios.get('/api/feedbacks');
-        console.log('Dados recebidos:', response.data); // Log dos dados recebidos
+        console.log('Dados recebidos:', response.data); 
         if (Array.isArray(response.data)) {
           setFeedbacks(response.data);
         } else {
           throw new Error('Dados inválidos recebidos da API.');
         }
       } catch (error) {
-        console.error('Erro ao buscar feedbacks:', error.response ? error.response.data : error.message); // Log detalhado do erro
+        console.error('Erro ao buscar feedbacks:', error.response ? error.response.data : error.message); 
         setError('Erro ao carregar feedbacks. Tente novamente mais tarde.');
       } finally {
         setLoading(false);
@@ -33,7 +33,7 @@ const Feedbacks = () => {
         await axios.delete(`/api/feedbacks/${id}`);
         setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
       } catch (error) {
-        console.error('Erro ao excluir feedback:', error.response ? error.response.data : error.message); // Log detalhado do erro
+        console.error('Erro ao excluir feedback:', error.response ? error.response.data : error.message);
         setError('Erro ao excluir feedback. Tente novamente mais tarde.');
       }
     }
