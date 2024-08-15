@@ -27,18 +27,18 @@ const HomePage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col">
+        <div className="min-h-screen  bg-gray-100 flex flex-col">
             <Header />
             <div className="mt-6">
                 <button
-                    className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="bg-blue-500 text-white font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     onClick={() => navigate('/create-ad')} 
                 >
                     Criar novo Anúncio
                 </button>
             </div>
 
-            <main className="flex flex-wrap justify-center py-2 w-full max-w-screen-lg mt-4">
+            <main className="flex flex-wrap justify-center py-2  max-w-screen-xl mt-8">
                 {products.map((product, index) => (
                     <ProductCard
                         key={index}
