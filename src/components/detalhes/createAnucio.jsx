@@ -8,7 +8,7 @@ const CreateAdPage = () => {
     location: "",
     price: "",
     category: "",
-    weight: "",
+    category: "",
   });
 
   const [error, setError] = useState("");
@@ -34,9 +34,23 @@ const CreateAdPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  async(e) => {
     e.preventDefault();
     console.log("Ad Created:", formData);
+    try{
+  const response = await axios.post('/api/post/', formData, config);
+        if (response.status === 201) {
+          setSuccessMessage('Anúncio criado com sucesso!');
+          setTimeout(() => {
+            navigate("/"); 
+          }, 2000);
+        }
+
+
+    }catch(error){
+      console.log(error)
+    }
+    
   };
 
   return (
@@ -44,26 +58,8 @@ const CreateAdPage = () => {
       <h1 className="text-3xl font-bold mb-6 text-center">Criar Novo Anúncio</h1>
 
       <form onSubmit={handleSubmit} className=" shadow-md rounded-lg p-6">
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-semibold mb-2">Nome</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
         
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-semibold mb-2">Descrição</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          ></textarea>
-        </div>
+       
         
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-semibold mb-2">Localização</label>
@@ -87,8 +83,23 @@ const CreateAdPage = () => {
           />
         </div>
         
+        <div class="mb-6">
+  <label class="block text-gray-700 text-sm font-semibold mb-2">Categoria</label>
+  <select
+    name="category"
+    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  >
+    <option value="" disabled selected>Selecione uma categoria</option>
+    <option value="0d481d8f-d92f-4cd5-b1d2-8da1806cbb1b">Metal</option>
+    <option value="40302c1e-458e-4765-8df6-0c3db7db86a1">Plástico</option>
+    <option value="e2ce95e9-6597-4d33-85a5-7860deab4cae">Papel</option>
+    <option value="1b5def53-97eb-4540-a071-e7e379664ce7">Madeira</option>
+  </select>
+</div>
+
+        
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-semibold mb-2">Categoria</label>
+          <label className="block text-gray-700 text-sm font-semibold mb-2">Quantidade</label>
           <input
             type="text"
             name="category"
@@ -97,16 +108,15 @@ const CreateAdPage = () => {
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-        
+         
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-semibold mb-2">Quantidade</label>
-          <input
-            type="text"
-            name="weight"
-            value={formData.weight}
+          <label className="block text-gray-700 text-sm font-semibold mb-2">Descrição</label>
+          <textarea
+            name="description"
+            value={formData.description}
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          ></textarea>
         </div>
         
         <div className="mb-6">
@@ -125,13 +135,15 @@ const CreateAdPage = () => {
           )}
           {error && <p className="text-red-500 mt-2">{error}</p>}
         </div>
-        
-        <button
+        <div className="flex justify-center">
+          <button 
           type="submit"
-          className="bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 m-auto"
         >
           Criar Anúncio
         </button>
+        </div>
+        
       </form>
     </div>
   );
