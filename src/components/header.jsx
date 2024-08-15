@@ -1,42 +1,51 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from 'axios'; 
 import { User } from 'phosphor-react'; 
+
 const Header = ({ userType }) => {
- 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const api = axios.create({
     baseURL: 'http://localhost:3031', 
   });
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  
   const handleProfileClick = () => {
     navigate('/admin'); 
   };
+
+  const handleTitleClick = () => {
+    navigate('/'); // Navega para a página inicial
+  };
+
   if (userType === "users" || userType === "admin") {
     return null;
   }
+
   return (
-    <nav className="bg-white text-black py-4 flex justify-between  ">
-      <div className="container mx-auto flex  items-center px-4">
+    <nav className="bg-white text-black py-4 flex justify-between">
+      <div className="container mx-auto flex items-center px-4">
         <div className="flex items-center">
           <div className="border-2 border-gray-300 rounded-lg px-2 flex items-center">
-            <h1 className="text-2xl font-bold px-4 py-2 transition-all duration-300 ease-in-out transform hover:text-blue-500 hover:scale-105 glow-effect">
+            <h1 
+              onClick={handleTitleClick} // Adiciona o manipulador de clique aqui
+              className="text-2xl font-bold px-4 py-2 transition-all duration-300 ease-in-out transform cursor-pointer hover:text-blue-500 hover:scale-105 glow-effect"
+            >
               Trilha
             </h1>
           </div>
         </div>
 
         <div className="hidden md:flex flex-grow justify-center items-center">
-         
+          {/* Adicione outros links aqui, se necessário */}
         </div>
 
-        <div className="flex items-center"> <NavLink
+        <div className="flex items-center">
+          <NavLink
             to="/admin"
             className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
           >
@@ -67,7 +76,6 @@ const Header = ({ userType }) => {
             Login
           </NavLink>
           <div className="hidden md:block ml-4">
-            
             <button
               onClick={handleProfileClick}
               className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg flex items-center"
@@ -75,12 +83,8 @@ const Header = ({ userType }) => {
               <User size={24} />
             </button>
           </div>
-
-         
         </div>
       </div>
-
-     
     </nav>
   );
 };
