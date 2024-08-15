@@ -17,6 +17,7 @@ import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
 import AnuncioHistorico from './Pages/AnuncioHistorico';
 import UserAds from './Pages/anucios';
 import CreateCart from './Pages/createad';
+import Residuos from './Pages/residuos';
 
 
 

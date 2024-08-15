@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pencil, Eye, Trash } from 'phosphor-react';
 import Header from '../components/header';
-import Footer from '../components/footer'; 
+import { Footer } from '../components/footer';
 
 const UserAds = () => {
   const items = [
