@@ -23,6 +23,14 @@ const {login} =  useAuth()
       console.log(response)
       if (response.status === 200) {
         login(response.data.token,response.data.role)
+        
+        if(role ==="ADMIN"){
+          setTimeout(() => {
+            navigate("/admin/dashboard"); 
+          }, 2000);
+
+        }
+
 
         setSuccessMessage('Login realizado com sucesso.');
         setTimeout(() => {
