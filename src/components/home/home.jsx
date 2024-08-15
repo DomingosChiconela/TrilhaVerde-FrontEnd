@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ProductCard } from '../home/productcart';
+import { ProductCard } from '../home/productcart'; 
 import Header from '../header';
 
 const HomePage = () => {
