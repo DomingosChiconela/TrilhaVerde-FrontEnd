@@ -1,4 +1,3 @@
-// src/routes.js
 import { createBrowserRouter } from 'react-router-dom';
 import { Login } from './Pages/login';
 import { ResetPassword } from './Pages/reset';
