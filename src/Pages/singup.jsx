@@ -1,7 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+
 import { useNavigate } from 'react-router-dom';
+import { httpClient } from '../axios/axios';
 
 export const Signup = () => {
   const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm();
@@ -14,22 +15,21 @@ export const Signup = () => {
       alert('Você deve aceitar os termos e condições para se registrar.');
       return;
     }
-
-    
-
     try {
-      const response = await axios.post('/user', {
-        name: data.name,
-        email: data.email,
-        password: data.password,
-      });
+      const response = await httpClient.post("/api/auth/signup", data);
       console.log(response.data);
+      
 
       setSuccessMessage('Cadastro realizado com sucesso.');
       setShowOptions(true);
-      setTimeout(() => {
-        navigate('/login'); 
-      }, 3000);
+      if (response.status === 201) {
+
+
+        setSuccessMessage('Registro realizado com sucesso.');
+        setTimeout(() => {
+          navigate("/login"); 
+        }, 3000);
+      } 
 
     } catch (error) {
       console.error('Erro ao registrar cliente', error);
@@ -45,10 +45,10 @@ export const Signup = () => {
             <h2 className="text-2xl font-semibold text-green-800 text-center">Cadastro</h2>
 
             <label className="block">
-  <span className="text-black">Nome:</span>
+  <span className="text-black">nome:</span>
   <input
     type="text"
-    {...register('name', { required: 'Nome é obrigatório' })}
+    {...register('name', { required: 'Email é obrigatório' })}
     className={`mt-1 block w-full border-2 ${errors.name ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
   />
   {errors.name && <p className="text-red-500">{errors.name.message}</p>}
@@ -62,6 +62,16 @@ export const Signup = () => {
     className={`mt-1 block w-full border-2 ${errors.email ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
   />
   {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+</label>
+
+<label className="block">
+  <span className="text-black">Contacto</span>
+  <input
+    type="text"
+    {...register('contact', { required: 'Senha é obrigatória' })}
+    className={`mt-1 block w-full border-2 ${errors.contact ? 'border-red-500' : 'border-black'} rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm`}
+  />
+  {errors.contact && <p className="text-red-500">{errors.contact.message}</p>}
 </label>
 
 <label className="block">

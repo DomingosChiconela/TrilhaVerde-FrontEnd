@@ -10,11 +10,15 @@ import Dashboard from './components/dashbord';
 import Feedbacks from './components/feedbacks';
 import Users from './components/users';
 import Settings from './components/setings';
-import { Home } from './Pages/home'; 
+import { Home } from './Pages/home';
+import Perfil from './components/perfil/perfil';
+import Notifications from './components/Notifications';
 import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
 import AnuncioHistorico from './Pages/AnuncioHistorico';
 import UserAds from './Pages/anucios';
-import Residuos from './Pages/residuos.jsx';
+import CreateCart from './Pages/createad';
+
+
 
 export const route = createBrowserRouter([
     {
@@ -25,6 +29,11 @@ export const route = createBrowserRouter([
         path: "/signup",
         element: <Signup />
     },
+    {
+        path: "/create-ad",
+        element: <CreateCart />
+    },
+    
     {
         path: "/login",
         element: <Login />
@@ -79,5 +88,13 @@ export const route = createBrowserRouter([
     {
         path: "*",
         element: <NotFound />
-    }
+    },
+    {
+        path: "/perfil",
+        element: <Perfil />
+    },
+    {
+        path: "/notifications",
+        element: <Notifications />
+    },
 ]);

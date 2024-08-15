@@ -12,6 +12,7 @@ const EducacaoSensibilizacao = () => {
   return (
     <>
     <div className="container mx-auto p-6">
+       <Header/>
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Educação e Sensibilização sobre Reciclagem</h1>
       </header>
@@ -139,6 +140,7 @@ const EducacaoSensibilizacao = () => {
           </section>
         </div>
       </div>
+      <Footer/>
     </div>
     <Footer/>
     </>
