@@ -7,10 +7,10 @@ const Header = ({ userType }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const api = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'http://localhost:3031', 
   });
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -18,16 +18,10 @@ const Header = ({ userType }) => {
   const handleProfileClick = () => {
     navigate('/admin'); 
   };
-
-  
   if (userType === "users" || userType === "admin") {
     return null;
   }
-
   return (
-
-
-    
     <nav className="bg-white text-black py-4 flex justify-between  ">
       <div className="container mx-auto flex  items-center px-4">
         <div className="flex items-center">
@@ -82,42 +76,11 @@ const Header = ({ userType }) => {
             </button>
           </div>
 
-          {/* <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="text-white focus:outline-none hover:text-green-950 font-bold"
-            >
-              Menu
-            </button>
-          </div> */}
+         
         </div>
       </div>
 
-      {/* {isMenuOpen && (
-        <div className="md:hidden bg-blue-600 text-white py-2 px-4">
-          <div className="flex flex-col gap-2">
-            <NavLink
-              to="/admin"
-              className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
-            >
-              Admin
-            </NavLink>
-            <NavLink
-            to="/signup"
-            className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
-          >
-            Signup
-          </NavLink>
-          <NavLink
-            to="/login"
-            className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
-          >
-            Login
-          </NavLink>
-            </div>
-          </div>
-        
-      )} */}
+     
     </nav>
   );
 };

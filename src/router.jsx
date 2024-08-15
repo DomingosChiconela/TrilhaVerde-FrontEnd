@@ -12,6 +12,12 @@ import Settings from './components/setings';
 import { Home } from './Pages/home';
 import Perfil from './components/perfil/perfil';
 import Notifications from './components/Notifications';
+import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
+import AnuncioHistorico from './Pages/AnuncioHistorico';
+import UserAds from './Pages/anucios';
+import CreateCart from './Pages/createad';
+
+
 
 export const route = createBrowserRouter([
     {
@@ -23,6 +29,11 @@ export const route = createBrowserRouter([
         element: <Signup />
     },
     {
+        path: "/create-ad",
+        element: <CreateCart />
+    },
+    
+    {
         path: "/login",
         element: <Login />
     },
@@ -33,6 +44,18 @@ export const route = createBrowserRouter([
     {
         path: "/forget",
         element: <ForgotPassword />
+    },
+    {
+        path: "/EducacaoSensibilizacao",
+        element: < EducacaoSensibilizacao/>
+    },
+    {
+        path: "/AnuncioHistorico",
+        element: < AnuncioHistorico/>
+    },
+    {
+        path: "/UserAds",
+        element: < UserAds/>
     },
     {
         path: "/admin",
