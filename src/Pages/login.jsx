@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { httpClient } from '../axios/axios';
+import { useAuth } from '../Contexts/AuthContext';
 
 
 export const Login = () => {
@@ -10,22 +11,27 @@ export const Login = () => {
   const [errorMessage, setErrorMessage] = React.useState('');
   const [successMessage, setSuccessMessage] = React.useState('');
   const navigate = useNavigate();
+const {login} =  useAuth()
 
   const onSubmit = async (data) => {
     setErrorMessage('');
     setSuccessMessage('');
-
+    console.log(data);
+  
     try {
       const response = await httpClient.post('/api/auth/login', data);
+      console.log(response)
       if (response.status === 200) {
-        setToken(response.data.token);
-        setRole(response.data.role); 
+        login(response.data.token,response.data.role)
+
         setSuccessMessage('Login realizado com sucesso.');
-        navigate("/"); 
+        setTimeout(() => {
+          navigate("/"); 
+        }, 2000);
       } 
     } catch (error) {
-      console.error('Erro ao fazer login', error);
-      setErrorMessage('Erro ao fazer login. Tente novamente mais tarde.');
+      console.error('Erro ao fazer login:', error);
+      
     }
   };
   return (
