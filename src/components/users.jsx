@@ -3,15 +3,13 @@ import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pencil, Eye, Trash } from 'phosphor-react';
 
-// Registrar componentes do Chart.js
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const UserProfileTable = () => {
-  // Dados fictícios para o gráfico
   const provincialData = [
-    { label: 'Província A', value: 30 },
-    { label: 'Província B', value: 20 },
-    { label: 'Província C', value: 50 },
+    { label: 'Maputo', value: 30 },
+    { label: 'Nanpula', value: 20 },
+    { label: 'Gaza', value: 80 },
   ];
 
   const pieData = {
@@ -24,11 +22,10 @@ const UserProfileTable = () => {
     }]
   };
 
-  // Dados fictícios para a tabela
   const users = [
-    { id: 1, profilePicture: 'https://via.placeholder.com/40', name: 'Usuário 1' },
-    { id: 2, profilePicture: 'https://via.placeholder.com/40', name: 'Usuário 2' },
-    { id: 3, profilePicture: 'https://via.placeholder.com/40', name: 'Usuário 3' },
+    { id: 1, profilePicture: 'https://via.placeholder.com/40', name: 'Domingos' },
+    { id: 2, profilePicture: 'https://via.placeholder.com/40', name: 'Vicente' },
+    { id: 3, profilePicture: 'https://via.placeholder.com/40', name: 'Alicida' },
   ];
 
   const handleEdit = (id) => {
@@ -45,9 +42,7 @@ const UserProfileTable = () => {
 
   return (
     <div className="p-6">
-      {/* Layout com cartão e gráfico lado a lado */}
       <div className="flex flex-col md:flex-row gap-6 mb-8">
-        {/* Cartão à esquerda */}
         <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 flex-shrink-0 w-full md:w-1/2">
           <h2 className="text-2xl font-semibold gradient-text mb-4">Resumo da Atividade</h2>
           <p className="text-gray-700 mb-4">Aqui você pode ver um resumo das atividades e desempenho geral dos usuários.</p>
@@ -58,13 +53,11 @@ const UserProfileTable = () => {
           </ul>
         </div>
 
-        {/* Gráfico à direita */}
         <div className="w-full md:w-1/2 h-64 border border-gray-300 flex items-center justify-center">
           <Pie data={pieData} />
         </div>
       </div>
 
-      {/* Tabela com 5 colunas */}
       <div className="overflow-x-auto mt-8">
         <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
           <thead>

@@ -23,14 +23,7 @@ export const route = createBrowserRouter([
         path: "/signup",
         element: <Signup />
     },
-    {
-        path: "/historico",
-        element: <CreateCart />
-    },
-    {
-        path: "/create-ad",
-        element: <CreateCart />
-    },
+    
     {
         path: "/login",
         element: <Login />
