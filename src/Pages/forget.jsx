@@ -13,10 +13,10 @@ export const ForgotPassword = () => {
     try {
       const response = await httpClient.post("/api/user/forgotPassword", data);
       if (response.status === 200) {
+        console.log(response)
         setMessage('Um e-mail com instruções para redefinir sua senha foi enviado.');
-      } else {
-        setMessage('Ocorreu um erro. Verifique se o e-mail está correto.');
-      }
+      } 
+
     } catch (error) {
       console.error('Erro ao enviar solicitação de recuperação de senha', error);
       setMessage('Erro ao enviar solicitação. Tente novamente mais tarde.');
