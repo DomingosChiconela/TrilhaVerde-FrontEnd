@@ -1,4 +1,3 @@
-// Notifications.jsx
 
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -24,7 +23,7 @@ const Notifications = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    seller: 'Vendedor', // Substitua com a lógica real para o vendedor
+                    seller: 'Vendedor',  
                     product: product.name,
                 }),
             });
@@ -36,10 +35,7 @@ const Notifications = () => {
                 setError('Erro ao enviar notificação.');
             }
 
-            // Geração do link do WhatsApp
-            const whatsappUrl = `https://wa.me/5511912345678?text=Olá, estou interessado no seu ${product.name}.`; // Substitua com o telefone real do vendedor
-
-            // Redireciona para o WhatsApp
+            const whatsappUrl = `https://wa.me/5511912345678?text=Olá, estou interessado no seu ${product.name}.`; 
             window.open(whatsappUrl, '_blank');
         } catch (err) {
             setError('Erro ao enviar notificação.');
@@ -67,7 +63,7 @@ const Notifications = () => {
                     className="mt-4 px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 disabled:opacity-50"
                     disabled={loading}
                 >
-                    {loading ? 'Enviando...' : <><FaWhatsapp className="mr-2" /> Notificar</>}
+                    {loading ? 'Enviando...' : <><FaWhatsapp className="mr-2" /> </>}
                 </button>
             </div>
             <div>
