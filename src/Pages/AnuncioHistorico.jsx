@@ -154,5 +154,4 @@ const AnuncioHistorico = () => {
     </>
   );
 };
-
 export default AnuncioHistorico;
