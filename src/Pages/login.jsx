@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { httpClient } from '../axios/axios';
+
 
 export const Login = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
@@ -14,22 +16,18 @@ export const Login = () => {
     setSuccessMessage('');
 
     try {
-      const response = await axios.post('/auth/login', data);
-
-      if (response.data.success) {
+      const response = await httpClient.post('/api/auth/login', data);
+      if (response.status === 200) {
+        setToken(response.data.token);
+        setRole(response.data.role); 
         setSuccessMessage('Login realizado com sucesso.');
-        setTimeout(() => {
-          navigate('/dashboard'); 
-        }, 2000);
-      } else {
-        setErrorMessage('Credenciais inválidas, tente novamente.');
-      }
+        navigate("/"); 
+      } 
     } catch (error) {
       console.error('Erro ao fazer login', error);
       setErrorMessage('Erro ao fazer login. Tente novamente mais tarde.');
     }
   };
-
   return (
     <div className="min-h-screen flex flex-col bg-green-100 p-4">
       <div className="flex-grow flex items-center justify-center">

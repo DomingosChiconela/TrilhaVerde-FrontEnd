@@ -1,3 +1,4 @@
+// src/routes.js
 import { createBrowserRouter } from 'react-router-dom';
 import { Login } from './Pages/login';
 import { ResetPassword } from './Pages/reset';
@@ -9,10 +10,11 @@ import Dashboard from './components/dashbord';
 import Feedbacks from './components/feedbacks';
 import Users from './components/users';
 import Settings from './components/setings';
-import { Home } from './Pages/home';
+import { Home } from './Pages/home'; 
 import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
 import AnuncioHistorico from './Pages/AnuncioHistorico';
 import UserAds from './Pages/anucios';
+import Residuos from './Pages/residuos.jsx';
 
 export const route = createBrowserRouter([
     {
@@ -23,7 +25,6 @@ export const route = createBrowserRouter([
         path: "/signup",
         element: <Signup />
     },
-    
     {
         path: "/login",
         element: <Login />
@@ -37,17 +38,18 @@ export const route = createBrowserRouter([
         element: <ForgotPassword />
     },
     {
-        path: "/EducacaoSensibilizacao",
-        element: < EducacaoSensibilizacao/>
+        path: "/educacao-sensibilizacao",
+        element: <EducacaoSensibilizacao />
     },
     {
-        path: "/AnuncioHistorico",
-        element: < AnuncioHistorico/>
+        path: "/anuncio-historico",
+        element: <AnuncioHistorico />
     },
     {
-        path: "/UserAds",
-        element: < UserAds/>
+        path: "/user-ads",
+        element: <UserAds />
     },
+   
     {
         path: "/admin",
         element: <AdminPage />,
@@ -67,11 +69,15 @@ export const route = createBrowserRouter([
             {
                 path: "feedbacks",
                 element: <Feedbacks />
-            }
+            },
+            {
+                path: "residuos",
+                element: <Residuos/> 
+            },
         ]
     },
     {
-        path: "*", 
+        path: "*",
         element: <NotFound />
     }
 ]);

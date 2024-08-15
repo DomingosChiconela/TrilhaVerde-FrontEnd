@@ -47,6 +47,16 @@ const AdminPage = () => {
               >
                 Feedbacks
               </NavLink>
+              </li>
+            <li className="mb-4">
+              <NavLink
+                to="/admin/residuos"
+                className={({ isActive }) =>
+                  `block px-4 py-2 rounded-md ${isActive ? 'bg-gray-700' : 'hover:bg-gray-600'}`
+                }
+              >
+                Residuos
+              </NavLink>
             </li>
           </ul>
         </nav>
