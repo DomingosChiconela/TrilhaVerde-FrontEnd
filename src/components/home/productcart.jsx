@@ -6,6 +6,7 @@ const calculateImagePath  = (imageName) => {
     if (imageName === "Plastico") return "https://images.newscientist.com/wp-content/uploads/2023/08/23172508/SEI_168561319.jpg"
     if (imageName === "Madeira") return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqGH2I13B44jJLjk90BVGG048CoUz_GiTTFg&s"
     if (imageName === "Metal") return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4XMcmrdsqVpWy0T9Qi2EkuqyGOICplW0LvA&s"
+    if (imageName === "Papel") return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjAuHtLhb3Q3ZkfeSPlPM5DG9fBXNbA_CuHw&s"
   
 }
 
