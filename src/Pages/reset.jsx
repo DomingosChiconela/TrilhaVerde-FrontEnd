@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import { httpClient } from '../axios/axios';
 
 export const ResetPassword = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
@@ -17,7 +18,7 @@ export const ResetPassword = () => {
     }
 
     try {
-      const response = await axios.put(`/resetPassword/${token}`);
+      const response = await httpClient.put(`/resetPassword/${token}`);
 
       if (response.status === 200) {
         setMessage('Senha redefinida com sucesso. Você será redirecionado para a página de login.');

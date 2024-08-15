@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { httpClient } from '../axios/axios';
 
 export const ForgotPassword = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
@@ -10,7 +11,7 @@ export const ForgotPassword = () => {
     setMessage('');
 
     try {
-      const response = await axios.post("/api/user/forgotPassword", data);
+      const response = await httpClient.post("/api/user/forgotPassword", data);
       if (response.status === 200) {
         setMessage('Um e-mail com instruções para redefinir sua senha foi enviado.');
       } else {

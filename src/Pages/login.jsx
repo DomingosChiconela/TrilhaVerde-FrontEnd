@@ -84,6 +84,9 @@ const {login} =  useAuth()
           <p className="mt-4 text-center">
             Não tem uma conta? <a href="/signup" className="text-blue-600 hover:underline">Crie uma aqui</a>
           </p>
+          <p className="mt-4 text-center">
+             <a href="/forget" className="text-blue-600 hover:underline">Esqueci minha senha</a>
+          </p>
         </div>
       </div>
     </div>
