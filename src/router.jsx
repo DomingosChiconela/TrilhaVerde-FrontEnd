@@ -10,8 +10,9 @@ import Feedbacks from './components/feedbacks';
 import Users from './components/users';
 import Settings from './components/setings';
 import { Home } from './Pages/home';
-import CreateCart from './Pages/createad';
-
+import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
+import AnuncioHistorico from './Pages/AnuncioHistorico';
+import UserAds from './Pages/anucios';
 
 export const route = createBrowserRouter([
     {
@@ -22,14 +23,7 @@ export const route = createBrowserRouter([
         path: "/signup",
         element: <Signup />
     },
-    {
-        path: "/historico",
-        element: <CreateCart />
-    },
-    {
-        path: "/create-ad",
-        element: <CreateCart />
-    },
+    
     {
         path: "/login",
         element: <Login />
@@ -41,6 +35,18 @@ export const route = createBrowserRouter([
     {
         path: "/forget",
         element: <ForgotPassword />
+    },
+    {
+        path: "/EducacaoSensibilizacao",
+        element: < EducacaoSensibilizacao/>
+    },
+    {
+        path: "/AnuncioHistorico",
+        element: < AnuncioHistorico/>
+    },
+    {
+        path: "/UserAds",
+        element: < UserAds/>
     },
     {
         path: "/admin",

@@ -1,74 +1,109 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pencil, Eye, Trash } from 'phosphor-react';
 
-const Users = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get('/api/users');
-        // Verifique se a resposta é um array
-        if (Array.isArray(response.data)) {
-          setUsers(response.data);
-        } else {
-          setError('Dados inválidos recebidos da API.');
-        }
-      } catch (error) {
-        console.error('Erro ao buscar usuários', error);
-        setError('Erro ao buscar usuários. Tente novamente mais tarde.');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchUsers();
-  }, []);
+const UserProfileTable = () => {
+  const provincialData = [
+    { label: 'Maputo', value: 30 },
+    { label: 'Nanpula', value: 20 },
+    { label: 'Gaza', value: 80 },
+  ];
 
-  if (loading) {
-    return <p className="text-center text-blue-500">Carregando...</p>;
-  }
+  const pieData = {
+    labels: provincialData.map(item => item.label),
+    datasets: [{
+      data: provincialData.map(item => item.value),
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      borderColor: '#fff',
+      borderWidth: 1,
+    }]
+  };
 
-  if (error) {
-    return <p className="text-red-600 text-center">{error}</p>;
-  }
+  const users = [
+    { id: 1, profilePicture: 'https://via.placeholder.com/40', name: 'Domingos' },
+    { id: 2, profilePicture: 'https://via.placeholder.com/40', name: 'Vicente' },
+    { id: 3, profilePicture: 'https://via.placeholder.com/40', name: 'Alicida' },
+  ];
+
+  const handleEdit = (id) => {
+    console.log(`Editar usuário com ID: ${id}`);
+  };
+
+  const handleView = (id) => {
+    console.log(`Visualizar usuário com ID: ${id}`);
+  };
+
+  const handleDelete = (id) => {
+    console.log(`Deletar usuário com ID: ${id}`);
+  };
 
   return (
     <div className="p-6">
-      <h3 className="text-2xl font-semibold mb-4 text-gray-800">Gestão de Usuários</h3>
-      <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-sm">
-        <thead>
-          <tr className="bg-gray-100 text-left">
-            <th className="py-2 px-4 border-b">ID</th>
-            <th className="py-2 px-4 border-b">Nome</th>
-            <th className="py-2 px-4 border-b">Email</th>
-            <th className="py-2 px-4 border-b">Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.length > 0 ? (
-            users.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-50">
-                <td className="py-2 px-4 border-b">{user.id}</td>
-                <td className="py-2 px-4 border-b">{user.name}</td>
-                <td className="py-2 px-4 border-b">{user.email}</td>
-                <td className="py-2 px-4 border-b text-center">
-                  <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-                    Excluir
-                  </button>
-                </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="4" className="py-2 px-4 text-center text-gray-500">Nenhum usuário encontrado</td>
+      <div className="flex flex-col md:flex-row gap-6 mb-8">
+        <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 flex-shrink-0 w-full md:w-1/2">
+          <h2 className="text-2xl font-semibold gradient-text mb-4">Resumo da Atividade</h2>
+          <p className="text-gray-700 mb-4">Aqui você pode ver um resumo das atividades e desempenho geral dos usuários.</p>
+          <ul className="list-disc ml-6 text-gray-700 space-y-2">
+            <li><strong>Total de Usuários:</strong> 150</li>
+            <li><strong>Usuários Ativos:</strong> 120</li>
+            <li><strong>Usuários Inativos:</strong> 30</li>
+          </ul>
+        </div>
+
+        <div className="w-full md:w-1/2 h-64 border border-gray-300 flex items-center justify-center">
+          <Pie data={pieData} />
+        </div>
+      </div>
+
+      <div className="overflow-x-auto mt-8">
+        <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+          <thead>
+            <tr className="bg-gray-100 border-b border-gray-200">
+              <th className="px-4 py-2 text-left text-gray-600">Perfil</th>
+              <th className="px-4 py-2 text-left text-gray-600">Nome</th>
+              <th className="px-4 py-2 text-center text-gray-600">Editar</th>
+              <th className="px-4 py-2 text-center text-gray-600">Detalhes</th>
+              <th className="px-4 py-2 text-center text-gray-600">Deletar</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.length > 0 ? (
+              users.map((user) => (
+                <tr key={user.id} className="border-b border-gray-200">
+                  <td className="px-4 py-2">
+                    <img src={user.profilePicture} alt={user.name} className="w-10 h-10 rounded-full" />
+                  </td>
+                  <td className="px-4 py-2 text-gray-700">{user.name}</td>
+                  <td className="px-4 py-2 text-center">
+                    <button onClick={() => handleEdit(user.id)} className="text-blue-500 hover:text-blue-700">
+                      <Pencil size={20} />
+                    </button>
+                  </td>
+                  <td className="px-4 py-2 text-center">
+                    <button onClick={() => handleView(user.id)} className="text-green-500 hover:text-green-700">
+                      <Eye size={20} />
+                    </button>
+                  </td>
+                  <td className="px-4 py-2 text-center">
+                    <button onClick={() => handleDelete(user.id)} className="text-red-500 hover:text-red-700">
+                      <Trash size={20} />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" className="px-4 py-2 text-center text-gray-500">Nenhum usuário encontrado.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
-export default Users;
+export default UserProfileTable;
