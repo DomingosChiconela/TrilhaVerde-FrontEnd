@@ -16,7 +16,6 @@ const Notifications = () => {
         setError(null);
 
         try {
-            // Simulação de chamada para um backend para enviar notificação
             const response = await fetch('/api/notify', {
                 method: 'POST',
                 headers: {

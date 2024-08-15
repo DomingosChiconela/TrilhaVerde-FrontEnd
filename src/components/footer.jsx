@@ -1,4 +1,4 @@
-import { GithubLogo,XLogo,FacebookLogo } from "@phosphor-icons/react";
+ import { GithubLogo,XLogo,FacebookLogo } from "@phosphor-icons/react";
 
 
 export const Footer = () => {
