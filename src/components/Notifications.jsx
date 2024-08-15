@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -63,7 +63,7 @@ const Notifications = () => {
                     className="mt-4 px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 disabled:opacity-50"
                     disabled={loading}
                 >
-                    {loading ? 'Enviando...' : <><FaWhatsapp className="mr-2" /> </>}
+                    {loading ? 'Enviando...' : <><FaWhatsapp className="mr-2" /></>}
                 </button>
             </div>
             <div>

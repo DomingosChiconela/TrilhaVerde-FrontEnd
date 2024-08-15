@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from 'axios'; 
 import { User } from 'phosphor-react'; 
@@ -7,7 +7,7 @@ const Header = ({ userType }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const api = axios.create({
-    baseURL: 'http://localhost:5000', // Substitua pela URL base real
+    baseURL: 'http://localhost:5000', 
   });
 
   const navigate = useNavigate();

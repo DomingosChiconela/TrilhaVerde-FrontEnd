@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import Dashboard from '../dasboarduser';
+import Header from '../header';
+import { Footer } from '../footer';
 
 const fetchProfileData = () => {
   return {
@@ -7,8 +9,8 @@ const fetchProfileData = () => {
     regiao: localStorage.getItem('regiao') || 'Sua Região',
     foto: localStorage.getItem('foto') || '',
     vendas: JSON.parse(localStorage.getItem('vendas')) || {
-      papel: 10, // Valor inicial ajustado
-      madeira: 15, // Valor inicial ajustado
+      papel: 10, 
+      madeira: 15, 
       vidro: 5,
       plastico: 7,
       metal: 12,
@@ -85,6 +87,8 @@ const Perfil = () => {
   };
 
   return (
+    <div>
+    <Header/>
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Perfil</h1>
 
@@ -221,8 +225,11 @@ const Perfil = () => {
               </button>
             </div>
           </div>
+         
         </div>
       )}
+    </div>
+    <Footer/>
     </div>
   );
 };

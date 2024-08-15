@@ -58,7 +58,7 @@ const doughnutData = (vendas) => ({
   ],
 });
 
-export const Dashboard = ({ vendas }) => {
+export const Dashboard = ( {vendas} ) => {
   return (
     <div className="p-6 max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">Dashboard</h1>

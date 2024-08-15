@@ -5,7 +5,6 @@ export const ProductCard = ({ image, name, description, location, price, categor
     const navigate = useNavigate();
 
     const handleNotifyClick = () => {
-        // Redireciona para a página de notificações com parâmetros opcionais
         navigate('/notifications', { state: { product: { name, description, location, price, category, weight } } });
     };
 
