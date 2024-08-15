@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const calculateImagePath  = (imageName) => {
+    console.log(imageName)
+    if (imageName === "Plastico") return "https://images.newscientist.com/wp-content/uploads/2023/08/23172508/SEI_168561319.jpg"
+    if (imageName === "Madeira") return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqGH2I13B44jJLjk90BVGG048CoUz_GiTTFg&s"
+}
+
 export const ProductCard = ({
    price,
    category,
    weight,
+   residueName,
    imageUrl,
    quantity,
    postId 
@@ -25,7 +32,7 @@ export const ProductCard = ({
     return (
         <div className="bg-white border border-gray-200 rounded-lg shadow-md m-4 w-screen sm:w-96 lg:w-1/3 overflow-hidden text-center">
             <img
-                src={imageUrl}
+                src={calculateImagePath(residueName)}
                 alt="Placeholder"
                 className="w-full h-48 object-cover"
             />
@@ -37,12 +44,15 @@ export const ProductCard = ({
                     <button className="px-4 py-2 border rounded-full bg-blue-500 text-white hover:bg-blue-600 transition duration-300">
                         i
                     </button>
+                    <a href={'https://wa.me//+351933833443?text=Tenho%20interesse%20em%20comprar%20' +residueName}>
                     <button
                         className="px-4 py-2 border rounded-lg bg-green-500 text-white hover:bg-green-600 transition duration-300"
-                        onClick={handleRequisitar}
+                        // onClick={handleRequisitar}
                     >
                         Requisitar
                     </button>
+
+                    </a>
                 </div>
             </div>
 
