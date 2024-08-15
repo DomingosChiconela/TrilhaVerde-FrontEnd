@@ -8,6 +8,7 @@ export const ResetPassword = () => {
   const { token } = useParams();
   const navigate = useNavigate();
   const [message, setMessage] = React.useState('');
+  
 
   const onSubmit = async (data) => {
     if (data.newPassword !== data.confirmPassword) {
@@ -16,13 +17,9 @@ export const ResetPassword = () => {
     }
 
     try {
-      const response = await axios.post('/auth/reset-password', {
-        resetCode: data.resetCode,
-        newPassword: data.newPassword,
-        token,
-      });
+      const response = await axios.put(`/resetPassword/${token}`);
 
-      if (response.data.success) {
+      if (response.status === 200) {
         setMessage('Senha redefinida com sucesso. Você será redirecionado para a página de login.');
         setTimeout(() => {
           navigate('/login');

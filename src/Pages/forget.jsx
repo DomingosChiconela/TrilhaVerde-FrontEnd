@@ -10,8 +10,8 @@ export const ForgotPassword = () => {
     setMessage('');
 
     try {
-      const response = await axios.post('/auth/forgot-password', data);
-      if (response.data.success) {
+      const response = await axios.post("/api/user/forgotPassword", data);
+      if (response.status === 200) {
         setMessage('Um e-mail com instruções para redefinir sua senha foi enviado.');
       } else {
         setMessage('Ocorreu um erro. Verifique se o e-mail está correto.');
