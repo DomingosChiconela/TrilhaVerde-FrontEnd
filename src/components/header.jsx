@@ -24,7 +24,7 @@ const { isAuthenticated } = useAuth()
   }
  
     return (
-      <nav className="bg-white text-black py-4 flex justify-between">
+      <nav className="bg-green-300 text-black py-4 flex justify-between">
         <div className="container mx-auto flex items-center px-4">
           <div className="flex items-center">
             <div className="border-2 border-gray-300 rounded-lg px-2 flex items-center">
