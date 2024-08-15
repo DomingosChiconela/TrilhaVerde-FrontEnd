@@ -11,6 +11,7 @@ import Users from './components/users';
 import Settings from './components/setings';
 import { Home } from './Pages/home';
 import Perfil from './components/perfil/perfil';
+import Notifications from './components/Notifications';
 
 export const route = createBrowserRouter([
     {
@@ -62,5 +63,9 @@ export const route = createBrowserRouter([
     {
         path: "/perfil",
         element: <Perfil />
+    },
+    {
+        path: "/notifications",
+        element: <Notifications />
     },
 ]);
