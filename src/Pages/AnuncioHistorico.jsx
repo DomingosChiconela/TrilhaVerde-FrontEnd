@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import axios from 'axios';
+import Header from '../components/header';
+import { Footer } from '../components/footer';
 
 const AnuncioHistorico = () => {
   const [anuncios, setAnuncios] = useState([]);
@@ -50,6 +52,7 @@ const AnuncioHistorico = () => {
 
   return (
     <>
+    <Header/>
     <div className="container mx-auto p-6">
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Histórico de Anúncios</h1>
@@ -147,6 +150,7 @@ const AnuncioHistorico = () => {
         </div>
       )}
     </div>
+    <Footer/>
     </>
   );
 };

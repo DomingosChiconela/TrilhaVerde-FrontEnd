@@ -1,34 +1,36 @@
 import React from 'react';
 import { Pencil, Eye, Trash } from 'phosphor-react';
+import Header from '../components/header';
+import { Footer } from '../components/footer';
 
 const UserAds = () => {
   const items = [
     {
       id: 1,
-      image: 'https://via.placeholder.com/40',
-      name: 'Item 1',
+      image: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg',
+      name: 'Domingos',
      
-      location: 'Localização 1',
+      location: 'Mafalala',
       price: '$10.00',
       category: 'Categoria A',
       weight: '1kg',
     },
     {
       id: 2,
-      image: 'https://via.placeholder.com/40',
-      name: 'Item 2',
+      image: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg',
+      name: 'Carlos',
      
-      location: 'Localização 2',
+      location: 'Benfica',
       price: '$20.00',
       category: 'Categoria B',
       weight: '2kg',
     },
     {
       id: 3,
-      image: 'https://via.placeholder.com/40',
-      name: 'Item 3',
+      image: 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg',
+      name: 'Vicente',
       
-      location: 'Localização 3',
+      location: 'Intakka',
       price: '$30.00',
       category: 'Categoria C',
       weight: '3kg',
@@ -48,12 +50,16 @@ const UserAds = () => {
   };
 
   return (
+    
+    <>
+    <Header/>
     <div className="p-6">
+      
       <div className="overflow-x-auto mt-8">
         <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
           <thead>
             <tr className="bg-gray-100 border-b border-gray-200">
-              <th className="px-4 py-2 text-left text-gray-600">Imagem</th>
+              <th className="px-4 py-2 text-left text-gray-600">Perfil</th>
               <th className="px-4 py-2 text-left text-gray-600">Nome</th>
               <th className="px-4 py-2 text-left text-gray-600">Localização</th>
               <th className="px-4 py-2 text-left text-gray-600">Preço</th>
@@ -102,6 +108,8 @@ const UserAds = () => {
         </table>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

@@ -1,12 +1,16 @@
 
+import { Footer } from '../components/footer';
+import Header from '../components/header';
 import HomePage from '../components/home/home';
 
 
 export const Home = () => {
     return (
-        <div>
+        <div className='bg-green-100'>
+            <Header/>
 
             <HomePage />
+            <Footer/>
         </div>
     );
 };

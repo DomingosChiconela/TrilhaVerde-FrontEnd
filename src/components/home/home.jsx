@@ -26,11 +26,11 @@ const config ={ headers :{Authorization :`Bearer ${localStorage.getItem('token')
     
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col">
+        <div className="min-h-screen bg-green-100 flex flex-col">
     <Header />
     <div className="flex justify-center mt-6 mb-4">
         <button
-            className="bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+            className="bg-blue-400 text-white font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
             onClick={() => navigate('/create-ad')}
         >
             Criar Novo Anúncio

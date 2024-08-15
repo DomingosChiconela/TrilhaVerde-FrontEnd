@@ -89,12 +89,11 @@ const Perfil = () => {
   return (
     <div>
     <Header/>
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Perfil</h1>
+    <div className="p-4 bg-green-100">
 
       <div className="flex flex-col items-center mb-4">
         <img
-          src={foto || 'https://via.placeholder.com/100'}
+          src={foto || 'https://lwlies.com/wp-content/uploads/2017/04/avatar-2009.jpg'}
           alt="Foto de Perfil"
           className="w-48 h-48 rounded-full border border-gray-300 mb-4"
         />
