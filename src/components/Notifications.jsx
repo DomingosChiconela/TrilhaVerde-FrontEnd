@@ -1,19 +1,17 @@
-
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaWhatsapp } from 'react-icons/fa';
 
 const Notifications = () => {
     const location = useLocation();
     const product = location.state?.product;
 
     const [notifications, setNotifications] = useState([]);
-    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [notificationSent, setNotificationSent] = useState(false);
+    const [requestAccepted, setRequestAccepted] = useState(false);
 
     const handleNotify = async () => {
         setLoading(true);
-        setError(null);
 
         try {
             // Simulação de chamada para um backend para enviar notificação
@@ -23,29 +21,27 @@ const Notifications = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    seller: 'Vendedor',  
+                    seller: 'Vendedor',
                     product: product.name,
                 }),
             });
 
             if (response.ok) {
                 setNotifications([...notifications, `Notificação enviada para ${product.name}`]);
-                alert(`Notificação enviada para ${product.name}`);
-            } else {
-                setError('Erro ao enviar notificação.');
+                setNotificationSent(true);
+                alert('Notificação enviada com sucesso!');
             }
-
-            const whatsappUrl = `https://wa.me/5511912345678?text=Olá, estou interessado no seu ${product.name}.`; 
-            window.open(whatsappUrl, '_blank');
-        } catch (err) {
-            setError('Erro ao enviar notificação.');
         } finally {
             setLoading(false);
         }
     };
 
+    const handleAcceptRequest = () => {
+        setRequestAccepted(true);
+    };
+
     if (!product) {
-        return <p>Produto não encontrado</p>;
+        return <p>Produto não encontrado.</p>;
     }
 
     return (
@@ -61,14 +57,29 @@ const Notifications = () => {
                 <button
                     onClick={handleNotify}
                     className="mt-4 px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 disabled:opacity-50"
-                    disabled={loading}
+                    disabled={loading || notificationSent}
                 >
-                    {loading ? 'Enviando...' : <><FaWhatsapp className="mr-2" /></>}
+                    {loading ? 'Enviando...' : 'Enviar Notificação'}
                 </button>
+                {notificationSent && !requestAccepted && (
+                    <div className="mt-4 p-2 bg-green-100 border border-green-300 text-green-700 rounded-lg">
+                        Notificação enviada com sucesso!
+                        <button
+                            onClick={handleAcceptRequest}
+                            className="ml-4 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600"
+                        >
+                            Aceitar Requisição
+                        </button>
+                    </div>
+                )}
+                {requestAccepted && (
+                    <div className="mt-4 p-2 bg-blue-100 border border-blue-300 text-blue-700 rounded-lg">
+                        Requisição aceita com sucesso!
+                    </div>
+                )}
             </div>
             <div>
                 <h2 className="text-2xl font-semibold mb-4">Notificações Enviadas</h2>
-                {error && <p className="text-red-600 mb-4">{error}</p>}
                 <ul className="list-disc pl-5 space-y-2">
                     {notifications.map((notification, index) => (
                         <li key={index} className="text-gray-800">{notification}</li>
