@@ -108,7 +108,7 @@ const UserAds = () => {
         </table>
       </div>
     </div>
-    <Footer />
+   
     </>
   );
 };

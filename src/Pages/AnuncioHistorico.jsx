@@ -150,7 +150,7 @@ const AnuncioHistorico = () => {
         </div>
       )}
     </div>
-    <Footer/>
+
     </>
   );
 };

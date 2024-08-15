@@ -5,7 +5,7 @@ import { useAuth } from "../Contexts/AuthContext";
 
 const Header = ({ userType }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated,logout } = useAuth();
   const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -59,7 +59,8 @@ const Header = ({ userType }) => {
                 Notificações
               </NavLink>
               <NavLink
-                to="/logout"
+                to="/logout" onClick={()=>{logout()  
+                  navigate('/admin'); }}
                 className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
               >
                 Logout

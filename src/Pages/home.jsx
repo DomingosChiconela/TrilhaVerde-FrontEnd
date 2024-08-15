@@ -9,7 +9,7 @@ export const Home = () => {
         <div className='bg-green-100'>
 
             <HomePage />
-            <Footer/>
+          
         </div>
     );
 };
