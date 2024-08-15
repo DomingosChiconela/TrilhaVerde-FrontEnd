@@ -10,7 +10,6 @@ const Users = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('/api/users');
-        // Verifique se a resposta é um array
         if (Array.isArray(response.data)) {
           setUsers(response.data);
         } else {
