@@ -1,5 +1,6 @@
 
 import HomePage from '../components/home/home';
+import EducacaoSensibilizacao from './educacaoSensibilizacao';
 
 
 export const Home = () => {
@@ -7,6 +8,7 @@ export const Home = () => {
         <div>
 
             <HomePage />
+            <EducacaoSensibilizacao/>
         </div>
     );
 };

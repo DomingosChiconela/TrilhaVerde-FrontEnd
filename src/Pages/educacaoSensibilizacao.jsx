@@ -1,11 +1,64 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import ReactPlayer from 'react-player';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-const EducacaoSensibilizacao = () => {
+// Setas personalizadas para o carrossel
+const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'gray' }}
+      onClick={onClick}
+    />
+  );
+};
+
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'gray' }}
+      onClick={onClick}
+    />
+  );
+};
+
+export const EducacaoSensibilizacao = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data); 
+  };
+
+  // Configuração do carrossel
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
 
   return (
@@ -14,40 +67,40 @@ const EducacaoSensibilizacao = () => {
         <h1 className="text-3xl font-bold text-gray-800">Educação e Sensibilização sobre Reciclagem</h1>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-  <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
-    <h2 className="text-2xl font-semibold gradient-text mb-4">Por que Reciclar?</h2>
-    <p className="text-gray-700 mb-4">Reciclar é essencial para a preservação do meio ambiente. Veja alguns dos principais benefícios:</p>
-    <ul className="list-disc ml-6 text-gray-700 space-y-2">
-      <li><strong>Reduz o Volume de Resíduos:</strong> Menos lixo nos aterros sanitários.</li>
-      <li><strong>Conserva Recursos Naturais:</strong> Menos necessidade de extrair novos materiais.</li>
-      <li><strong>Diminui a Poluição:</strong> Menos poluentes liberados no ar e na água.</li>
-    </ul>
-  </section>
+      <div className="mb-8">
+        <Slider {...settings}>
+          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
+            <h2 className="text-2xl font-semibold gradient-text mb-4">Por que Reciclar?</h2>
+            <p className="text-gray-700 mb-4">Reciclar é essencial para a preservação do meio ambiente. Veja alguns dos principais benefícios:</p>
+            <ul className="list-disc ml-6 text-gray-700 space-y-2">
+              <li><strong>Reduz o Volume de Resíduos:</strong> Menos lixo nos aterros sanitários.</li>
+              <li><strong>Conserva Recursos Naturais:</strong> Menos necessidade de extrair novos materiais.</li>
+              <li><strong>Diminui a Poluição:</strong> Menos poluentes liberados no ar e na água.</li>
+            </ul>
+          </div>
 
-  <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
-    <h2 className="text-2xl font-semibold gradient-text mb-4">Como Separar os Resíduos Corretamente</h2>
-    <p className="text-gray-700 mb-4">Separar os resíduos corretamente ajuda a garantir que os materiais recicláveis sejam processados de forma adequada:</p>
-    <ul className="list-disc ml-6 text-gray-700 space-y-2">
-      <li><strong>Plásticos:</strong> Coloque plásticos em um recipiente azul.</li>
-      <li><strong>Papéis e Cartões:</strong> Coloque papéis e cartões em um recipiente verde.</li>
-      <li><strong>Vidros:</strong> Coloque vidros em um recipiente transparente.</li>
-      <li><strong>Orgânicos:</strong> Coloque resíduos orgânicos em um recipiente marrom.</li>
-    </ul>
-  </section>
+          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
+            <h2 className="text-2xl font-semibold gradient-text mb-4">Como Separar os Resíduos Corretamente</h2>
+            <p className="text-gray-700 mb-4">Separar os resíduos corretamente ajuda a garantir que os materiais recicláveis sejam processados de forma adequada:</p>
+            <ul className="list-disc ml-6 text-gray-700 space-y-2">
+              <li><strong>Plásticos:</strong> Coloque plásticos em um recipiente azul.</li>
+              <li><strong>Papéis e Cartões:</strong> Coloque papéis e cartões em um recipiente verde.</li>
+              <li><strong>Vidros:</strong> Coloque vidros em um recipiente transparente.</li>
+              <li><strong>Orgânicos:</strong> Coloque resíduos orgânicos em um recipiente marrom.</li>
+            </ul>
+          </div>
 
-  <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
-  <h2 className="text-2xl font-semibold gradient-text mb-4">Recursos Adicionais</h2>
-  <p className="text-gray-700 mb-4">Aqui estão alguns recursos úteis para aprofundar seu conhecimento sobre reciclagem e gestão de resíduos:</p>
-  <ul className="list-disc ml-6 text-gray-700 space-y-2">
-    <li><strong>Manual de Reciclagem:</strong> Guia completo sobre práticas de reciclagem e como separar resíduos.</li>
-    <li><strong>Infográfico:</strong> Representação visual dos tipos de materiais recicláveis e suas categorias.</li>
-    <li><strong>Artigo Educativo:</strong> "A Importância da Reciclagem para o Futuro Sustentável"</li>
-  </ul>
-</section>
-
-</div>
-
+          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500">
+            <h2 className="text-2xl font-semibold gradient-text mb-4">Recursos Adicionais</h2>
+            <p className="text-gray-700 mb-4">Aqui estão alguns recursos úteis para aprofundar seu conhecimento sobre reciclagem e gestão de resíduos:</p>
+            <ul className="list-disc ml-6 text-gray-700 space-y-2">
+              <li><strong>Manual de Reciclagem:</strong> Guia completo sobre práticas de reciclagem e como separar resíduos.</li>
+              <li><strong>Infográfico:</strong> Representação visual dos tipos de materiais recicláveis e suas categorias.</li>
+              <li><strong>Artigo Educativo:</strong> "A Importância da Reciclagem para o Futuro Sustentável"</li>
+            </ul>
+          </div>
+        </Slider>
+      </div>
 
       <section className="mb-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Assista aos Nossos Vídeos</h2>
@@ -100,7 +153,7 @@ const EducacaoSensibilizacao = () => {
               <img 
                 src="recycling--removebg-preview.png" 
                 alt="Imagem de Exemplo" 
-                className="w-full h-full object-contain rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:brightness-90"
+                className="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:brightness-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30 rounded-lg group-hover:opacity-40 transition-opacity duration-300 ease-in-out"></div>
             </div>
@@ -108,17 +161,31 @@ const EducacaoSensibilizacao = () => {
 
           <section className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 w-full md:w-1/2 flex items-center justify-center transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
             <div className="w-full">
-              <h2 className="text-2xl font-semibold gradient-text mb-4 transition-transform duration-300 transform hover:translate-x-1 hover:translate-y-1">
-                Participe da Mudança
-              </h2>
-              <p className="text-gray-600 mb-4 transition-opacity duration-300 hover:opacity-80">
-                Para melhorar ainda mais a gestão de resíduos, preencha o formulário abaixo com sugestões ou informações adicionais.
-              </p>
+              <h2 className="text-2xl font-semibold gradient-text mb-4">Participe da Mudança</h2>
+              <p className="text-gray-600 mb-4">Para melhorar ainda mais a gestão de resíduos, preencha o formulário abaixo com sugestões ou informações adicionais.</p>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div className="space-y-2">
-                  <label htmlFor="sugestao" className="block text-gray-700 font-medium transition-transform duration-300 transform hover:scale-105">
-                    Sugestão:
-                  </label>
+                  <label htmlFor="nome" className="block text-gray-700 font-medium">Nome:</label>
+                  <input 
+                    {...register('nome')} 
+                    id="nome" 
+                    type="text" 
+                    placeholder="Seu nome" 
+                    className="w-full p-2 border border-gray-300 rounded-md transition-all duration-300 hover:border-blue-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-gray-700 font-medium">Email:</label>
+                  <input 
+                    {...register('email')} 
+                    id="email" 
+                    type="email" 
+                    placeholder="Seu email" 
+                    className="w-full p-2 border border-gray-300 rounded-md transition-all duration-300 hover:border-blue-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="sugestao" className="block text-gray-700 font-medium">Sugestão:</label>
                   <textarea 
                     {...register('sugestao')} 
                     id="sugestao" 

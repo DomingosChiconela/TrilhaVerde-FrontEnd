@@ -16,6 +16,7 @@ import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
 import AnuncioHistorico from './Pages/AnuncioHistorico';
 import UserAds from './Pages/anucios';
 import CreateCart from './Pages/createad';
+import ProductDetailPage from './components/detalhes/productdetails';
 
 
 
@@ -90,5 +91,9 @@ export const route = createBrowserRouter([
     {
         path: "/notifications",
         element: <Notifications />
+    },
+    {
+        path: "/productdetails",
+        element: <ProductDetailPage />
     },
 ]);

@@ -19,7 +19,7 @@ const Header = ({ userType }) => {
   };
 
   const handleTitleClick = () => {
-    navigate('/'); // Navega para a página inicial
+    navigate('/');
   };
 
   if (userType === "users" || userType === "admin") {
@@ -27,12 +27,12 @@ const Header = ({ userType }) => {
   }
 
   return (
-    <nav className="bg-white text-black py-4 flex justify-between">
+    <nav className="bg-white text-black py-4 flex justify-between items-center">
       <div className="container mx-auto flex items-center px-4">
         <div className="flex items-center">
           <div className="border-2 border-gray-300 rounded-lg px-2 flex items-center">
             <h1 
-              onClick={handleTitleClick} // Adiciona o manipulador de clique aqui
+              onClick={handleTitleClick} 
               className="text-2xl font-bold px-4 py-2 transition-all duration-300 ease-in-out transform cursor-pointer hover:text-blue-500 hover:scale-105 glow-effect"
             >
               Trilha
@@ -40,11 +40,7 @@ const Header = ({ userType }) => {
           </div>
         </div>
 
-        <div className="hidden md:flex flex-grow justify-center items-center">
-          {/* Adicione outros links aqui, se necessário */}
-        </div>
-
-        <div className="flex items-center">
+        <div className="flex-grow flex justify-end items-center">
           <NavLink
             to="/admin"
             className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
@@ -64,10 +60,10 @@ const Header = ({ userType }) => {
               Perfil
           </NavLink>
           <NavLink
-            to="/notifications"
+            to="/productdetails"
             className={({ isActive }) => `mr-4 text-lg transition-all duration-300 ease-in-out transform ${isActive ? 'text-blue-950' : 'hover:text-blue-500 hover:scale-105'} glow-effect`}
           >
-              Notificacoes
+              Detalhes
           </NavLink>
           <NavLink
             to="/login"

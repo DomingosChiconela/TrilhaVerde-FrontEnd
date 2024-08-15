@@ -90,7 +90,7 @@ const Perfil = () => {
     <div>
     <Header/>
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Perfil</h1>
+      <h1 className="text-2xl font-bold mb-4"></h1>
 
       <div className="flex flex-col items-center mb-4">
         <img
