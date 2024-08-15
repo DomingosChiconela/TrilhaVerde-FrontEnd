@@ -12,6 +12,7 @@ import Settings from './components/setings';
 import { Home } from './Pages/home';
 import EducacaoSensibilizacao from './Pages/educacaoSensibilizacao';
 import AnuncioHistorico from './Pages/AnuncioHistorico';
+import UserAds from './Pages/anucios';
 
 export const route = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const route = createBrowserRouter([
     {
         path: "/AnuncioHistorico",
         element: < AnuncioHistorico/>
+    },
+    {
+        path: "/UserAds",
+        element: < UserAds/>
     },
     {
         path: "/admin",
